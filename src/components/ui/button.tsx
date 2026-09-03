@@ -16,13 +16,22 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        /* Variantes ANGELLO */
+        hero: "bg-primary text-primary-foreground shadow-md hover:bg-gold hover:text-gold-foreground transition-all duration-300",
+        gold: "bg-gold text-gold-foreground shadow-md hover:brightness-110 transition-all duration-300",
+        outlineLight:
+          "border-2 border-primary-foreground/80 text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-all duration-300",
+        outlineBrand:
+          "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
+        xl: "h-12 rounded-xl px-8 text-base",
         icon: "h-9 w-9",
       },
+
     },
     defaultVariants: {
       variant: "default",
