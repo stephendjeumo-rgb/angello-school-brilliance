@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as GalerieRouteImport } from './routes/galerie'
 import { Route as NosNiveauxRouteImport } from './routes/nos-niveaux'
+import { Route as TemoignagesRouteImport } from './routes/temoignages'
+import { Route as TransportRouteImport } from './routes/transport'
 import { Route as VieScolaireRouteImport } from './routes/vie-scolaire'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,9 +27,24 @@ const AProposRoute = AProposRouteImport.update({
   path: '/a-propos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GalerieRoute = GalerieRouteImport.update({
+  id: '/galerie',
+  path: '/galerie',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NosNiveauxRoute = NosNiveauxRouteImport.update({
   id: '/nos-niveaux',
   path: '/nos-niveaux',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TemoignagesRoute = TemoignagesRouteImport.update({
+  id: '/temoignages',
+  path: '/temoignages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TransportRoute = TransportRouteImport.update({
+  id: '/transport',
+  path: '/transport',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VieScolaireRoute = VieScolaireRouteImport.update({
@@ -38,34 +56,68 @@ const VieScolaireRoute = VieScolaireRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/galerie': typeof GalerieRoute
   '/nos-niveaux': typeof NosNiveauxRoute
+  '/temoignages': typeof TemoignagesRoute
+  '/transport': typeof TransportRoute
   '/vie-scolaire': typeof VieScolaireRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/galerie': typeof GalerieRoute
   '/nos-niveaux': typeof NosNiveauxRoute
+  '/temoignages': typeof TemoignagesRoute
+  '/transport': typeof TransportRoute
   '/vie-scolaire': typeof VieScolaireRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/galerie': typeof GalerieRoute
   '/nos-niveaux': typeof NosNiveauxRoute
+  '/temoignages': typeof TemoignagesRoute
+  '/transport': typeof TransportRoute
   '/vie-scolaire': typeof VieScolaireRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/a-propos' | '/nos-niveaux' | '/vie-scolaire'
+  fullPaths:
+    | '/'
+    | '/a-propos'
+    | '/galerie'
+    | '/nos-niveaux'
+    | '/temoignages'
+    | '/transport'
+    | '/vie-scolaire'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/a-propos' | '/nos-niveaux' | '/vie-scolaire'
-  id: '__root__' | '/' | '/a-propos' | '/nos-niveaux' | '/vie-scolaire'
+  to:
+    | '/'
+    | '/a-propos'
+    | '/galerie'
+    | '/nos-niveaux'
+    | '/temoignages'
+    | '/transport'
+    | '/vie-scolaire'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-propos'
+    | '/galerie'
+    | '/nos-niveaux'
+    | '/temoignages'
+    | '/transport'
+    | '/vie-scolaire'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
+  GalerieRoute: typeof GalerieRoute
   NosNiveauxRoute: typeof NosNiveauxRoute
+  TemoignagesRoute: typeof TemoignagesRoute
+  TransportRoute: typeof TransportRoute
   VieScolaireRoute: typeof VieScolaireRoute
 }
 
@@ -85,11 +137,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AProposRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/galerie': {
+      id: '/galerie'
+      path: '/galerie'
+      fullPath: '/galerie'
+      preLoaderRoute: typeof GalerieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/nos-niveaux': {
       id: '/nos-niveaux'
       path: '/nos-niveaux'
       fullPath: '/nos-niveaux'
       preLoaderRoute: typeof NosNiveauxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/temoignages': {
+      id: '/temoignages'
+      path: '/temoignages'
+      fullPath: '/temoignages'
+      preLoaderRoute: typeof TemoignagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/transport': {
+      id: '/transport'
+      path: '/transport'
+      fullPath: '/transport'
+      preLoaderRoute: typeof TransportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/vie-scolaire': {
@@ -105,7 +178,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
+  GalerieRoute: GalerieRoute,
   NosNiveauxRoute: NosNiveauxRoute,
+  TemoignagesRoute: TemoignagesRoute,
+  TransportRoute: TransportRoute,
   VieScolaireRoute: VieScolaireRoute,
 }
 export const routeTree = rootRouteImport
